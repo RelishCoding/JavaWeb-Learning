@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS对象的创建</title>
+
+    <script>
+        var person = new Object()
+        // 给对象添加属性并赋值
+        person.name = "zhangsan"
+        person.age = 10
+        // 给对象添加功能函数
+        person.eat = function (food) {
+            console.log(this.name + this.age + "岁，正在吃" + food)
+        }
+        // 访问对象属性
+        console.log(person.name)
+        console.log(person.age)
+        // 调用对象方法
+        person.eat("火锅")
+
+        var student = {
+            "name": "lisi",
+            "age": 20,
+            "eat": function (food) {
+                console.log(this.name + this.age + "岁，正在吃" + food)
+            }
+        }
+        console.log(student.name)
+        console.log(student.age)
+        student.eat("烤肉")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
