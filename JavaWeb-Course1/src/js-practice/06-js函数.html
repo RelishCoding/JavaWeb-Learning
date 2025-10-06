@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS函数</title>
+
+    <script>
+        // 声明函数写法一
+        function sum(a, b) {
+            console.log(arguments)
+            return a + b
+        }
+        // 调用函数
+        var result = sum(10, 20)
+        console.log(result)
+
+        // 调用方法时形参和实参在数量上可以不一致
+        result = sum(10, 20, 30, 40)
+        console.log(result) // 30
+        result = sum(10)
+        console.log(result) // NaN
+
+        // 函数可以作为参数传递给另一个方法
+        function add(getSum) {
+            return getSum(20, 30)
+        }
+        var result = add(sum)
+        console.log(result) // 50
+
+        // 声明函数写法二
+        var sub = function (a, b) {
+            return a - b
+        }
+        var result = sub(50, 25)
+        console.log(result)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
