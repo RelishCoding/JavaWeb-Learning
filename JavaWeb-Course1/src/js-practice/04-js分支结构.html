@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS分支结构</title>
+
+    <script>
+        // 根据月份输出季节
+        // var month = 10
+        // prompt返回的结果就是用户在窗口上输入的值，以string类型返回的
+        // 方法一
+        // var month = prompt("请输入月份")
+        
+        // 方法二
+        var monthStr = prompt("请输入月份")
+        console.log(typeof monthStr)
+        // 字符串转换成整数
+        var month = Number.parseInt(monthStr)
+        console.log(typeof month)
+
+        if (month >= 3 && month <= 5) {
+            console.log("春眠不觉晓")
+        } else if (month >= 6 && month <= 8) {
+            console.log("夏天蚊子咬")
+        } else if (month >= 9 && month <= 11) {
+            console.log("蚊子死翘翘")
+        } else if (month == 12 || month == 1 || month == 2) {
+            console.log("冬天皮肤变好了")
+        } else {
+            console.log("客官不可以")
+        }
+
+        // 非空字符串、非空对象、非零number都会判断为true
+        if ('false') {
+            console.log(true)
+        } else {
+            console.log(false)
+        }
+
+        var monthStr = prompt("请输入月份")
+        var month = Number.parseInt(monthStr)
+        switch (month) {
+            case 3:
+            case 4:
+            case 5:
+                console.log("春季")
+                break;
+            case 6:
+            case 7:
+            case 8:
+                console.log("夏季")
+                break;
+            case 9:
+            case 10:
+            case 11:
+                console.log("秋季")
+                break;
+            case 1:
+            case 2:
+            case 12:
+                console.log("冬季")
+                break;
+            default:
+                console.log("月份有误")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
