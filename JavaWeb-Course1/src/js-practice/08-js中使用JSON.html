@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS中使用JSON</title>
+
+    <script>
+        // JSON格式字符串
+        var personStr = '{"name": "zhangsan", "age": 10, "dog": {"dname": "wangcai"}, "loveSingers": ["lisi", "wangwu", "zhaoliu"], "friends": [{"fname": "赵四"}, {"fname": "玉田"}, {"fname": "王小蒙"}]}'
+        console.log(personStr)
+        console.log(typeof personStr)
+
+        // 将一个JSON串转换为对象
+        var person = JSON.parse(personStr)
+        console.log(person)
+        console.log(person.name)
+        console.log(person.dog.dname)
+        console.log(person.loveSingers[0])
+        console.log(person.friends[0].fname)
+
+        // 将对象转换成JSON字符串
+        var personStr2 = JSON.stringify(person)
+        console.log(personStr2)
+        console.log(typeof personStr2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
