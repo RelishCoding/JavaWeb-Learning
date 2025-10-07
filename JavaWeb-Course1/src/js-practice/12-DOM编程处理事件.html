@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM编程处理事件</title>
+
+    <script>
+        // 第一种写法
+        function ready() {
+            // 通过DOM获得要操作的元素
+            let btn = document.getElementById('btn1')
+            // 绑定一个单击事件
+            btn.onclick = function () {
+                alert('按钮点击了')
+            }
+        }
+
+        // 第二种写法，注意去掉body元素的onload属性
+        window.onload = function () {
+            // 通过DOM获得要操作的元素
+            let btn = document.getElementById('btn1')
+            // 绑定一个单击事件
+            btn.onclick = function () {
+                alert('按钮点击了')
+            }
+
+            // 为div1绑定单击事件
+            let div1 = document.getElementById('d1')
+            div1.onclick = function () {
+                div1.style.backgroundColor = 'red'
+            }
+        }
+
+        // 第三种写法
+        window.onload = function () {
+            // 为div1绑定单击事件
+            let div1 = document.getElementById('d1')
+            div1.onclick = function () {
+                div1.style.backgroundColor = 'blue'
+            }
+
+            // 通过DOM获得要操作的元素
+            let btn = document.getElementById('btn1')
+            // 绑定一个单击事件
+            btn.addEventListener('click', function () {
+                alert('按钮点击了')
+
+                // 通过DOM编程触发事件，相当于某些事件发生了
+                // 通过DOM编程触发div的单击事件
+                div1.onclick()
+            })
+        }
+    </script>
+
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<!-- 页面加载事件 onload 页面加载完毕 -->
+<!-- <body onload="ready()"> -->
+<body>
+    <button id="btn1">按钮</button>
+    <br>
+
+    <div id="d1" class="div1"></div>
+
+    <a href="13-BOM编程常见API.html">下一页</a>
+</body>
+
+</html>
