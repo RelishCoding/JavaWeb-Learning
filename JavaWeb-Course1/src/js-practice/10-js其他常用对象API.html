@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS其他常用对象API</title>
+
+    <script>
+        // Date对象
+        var date = new Date()
+        console.log(date)
+        console.log(date.getFullYear())
+        console.log(date.getMonth()) // 0-11
+        console.log(date.getDate())
+        console.log(date.getHours())
+        console.log(date.getMinutes())
+        console.log(date.getMinutes())
+
+        date.setFullYear(2022)
+        date.setMonth(1)
+        date.setDate(2)
+        date.setHours(2)
+        date.setMinutes(2)
+        date.setSeconds(2)
+
+        // Number对象
+        var str = '10'
+        var res = 10 + str
+        console.log(res) // 1010
+        res = 10 + Number.parseInt(str)
+        console.log(res) // 20
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
