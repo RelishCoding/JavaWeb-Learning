@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS常用对象之数组</title>
+
+    <script>
+        // 数组的几种创建方式
+        // var arr = new Array()
+        // var arr = new Array(5)
+        // var arr = new Array("lisi", 20, false)
+        var arr = ["lisi", 20, false]
+        console.log(arr)
+        console.log(arr.length)
+        
+        // 向数组中添加数据
+        arr[0] = "zhangsan"
+        arr[1] = 10
+        arr[9] = true
+        arr.length = 15
+        console.log(arr)
+        console.log(arr.length)
+
+        var fruits = ['apple', 'orange', 'banana']
+        var fruits2 = ['荔枝', '榴莲', '桃子', '榴莲']
+        // 连接两个数组
+        var fruitsAll = fruits.concat(fruits2)
+        console.log(fruits)
+        console.log(fruits2)
+        console.log(fruitsAll)
+        // 移除并返回最后一个元素
+        var res = fruitsAll.pop()
+        console.log(res)
+        console.log(fruitsAll)
+        // 从尾端增加元素并返回长度
+        var len = fruitsAll.push('葡萄')
+        console.log(len)
+        console.log(fruitsAll)
+        // 查找元素的位置
+        var index1 = fruits2.indexOf('榴莲')
+        var index2 = fruits2.lastIndexOf('榴莲')
+        console.log(index1)
+        console.log(index2)
+        // 反转数组的顺序
+        fruits.reverse()
+        console.log(fruits)
+        // 转换为字符串
+        console.log(fruitsAll.join("-"))
+        // 截取数据
+        console.log(fruitsAll.slice(2, 5)) // 左闭右开
+        // 删除或增加数据
+        console.log(fruitsAll)
+        fruitsAll.splice(2, 0, 'ele1', 'ele2') // 0表示删除0个元素
+        console.log(fruitsAll)
+        fruitsAll.splice(2, 2)
+        console.log(fruitsAll)
+        fruitsAll.splice(2, 2, 'ele1', 'ele2')
+        console.log(fruitsAll)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
