@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM编程常见API</title>
+
+    <script>
+        // 弹窗方式一：window.alert()
+        // window对象是由浏览器提供给我们使用的，无需自己new
+        // window.可以省略不写
+        function fun1() {
+            // window.alert("这是信息提示框")
+            alert("这是信息提示框")
+        }
+
+        // 弹窗方式二：window.prompt()
+        function fun2() {
+            let res = window.prompt("请输入姓名")
+            console.log(res)
+        }
+
+        // 弹窗方式三：window.confirm()
+        function fun3() {
+            let res = window.confirm("确定要删除吗？")
+            console.log(res)
+        }
+
+        // 定时任务：window.setTimeout()
+        function fun4() {
+            window.setTimeout(function () {
+                console.log("hello")
+            }, 2000)
+        }
+
+        // history对象：窗口的访问历史
+        function fun5() {
+            window.history.back() // 后退
+            window.history.go(-1) // 后退几页
+        }
+
+        function fun6() {
+            window.history.forward() // 前进
+            window.history.go(1) // 前进几页
+        }
+
+        // location对象:窗口的URL地址使用
+        function fun7() {
+            window.location.href = "https://www.atguigu.com" // 修改地址栏中的url，跳转到指定页面
+            // window.location.reload() // 刷新页面
+        }
+
+        // sessionStorage对象：用于存储会话级别数据（浏览器关闭数据清除）
+        // localStorage对象：用于存储会话级别数据（浏览器关闭数据不丢失）
+        function fun8() {
+            // 向sessionStorage中存储数据
+            window.sessionStorage.setItem("name", "张三")
+            window.sessionStorage.setItem("age", 18)
+
+            //向localStorage中存储数据
+            window, localStorage.setItem("name", "李四")
+        }
+
+        function fun9() {
+            // 获取sessionStorage中的数据
+            let name = window.sessionStorage.getItem("name")
+            let age = window.sessionStorage.getItem("age")
+            console.log(name, age)
+
+            // 获取localStorage中的数据
+            let name2 = window.localStorage.getItem("name")
+            console.log(name2)
+        }
+
+        function fun10() {
+            // 删除sessionStorage中的数据
+            window.sessionStorage.removeItem("name")
+            window.sessionStorage.removeItem("age")
+
+            // 删除localStorage中的数据
+            window.localStorage.removeItem("name")
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="fun1()">信息提示框</button><br>
+    <button onclick="fun2()">信息输入框</button><br>
+    <button onclick="fun3()">信息确认框</button><br>
+
+    <button onclick="fun4()">两秒钟后向控制台打印hello</button>
+    <hr>
+
+    <button onclick="fun5()">上一页</button><br>
+    <button onclick="fun6()">下一页</button><br>
+    <a href="https://www.atguigu.com">尚硅谷</a>
+    <hr>
+
+    <button onclick="fun7()">尚硅谷</button>
+    <hr>
+
+    <button onclick="fun8()">存储数据</button><br>
+    <button onclick="fun9()">读取数据</button><br>
+    <button onclick="fun10()">清空数据</button>
+</body>
+
+</html>
