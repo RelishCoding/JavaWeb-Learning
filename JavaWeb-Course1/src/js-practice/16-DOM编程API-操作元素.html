@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM编程API-操作元素</title>
+
+    <script>
+        // 操作元素的属性
+        function changeAttribute() {
+            let in1 = document.getElementById('in1')
+            // 获取属性值
+            console.log(in1.type)
+            console.log(in1.value)
+            // 修改属性值
+            // 语法：元素.属性名 = 值
+            in1.type = 'button'
+            in1.value = '嗨'
+        }
+
+        // 操作元素的样式
+        function changeStyle() {
+            let in1 = document.getElementById('in1')
+            // 获取样式属性值
+            console.log(in1.style.color)
+            // 修改样式属性值
+            // 语法：元素.style.样式属性名 = 值
+            // 原始样式名中的“-”中横线符号要转换为驼峰式，如background-color -> backgroundColor
+            in1.style.color = 'green'
+            in1.style.borderRadius = '10px'
+        }
+
+        // 操作元素的内容
+        function changeText() {
+            let div1 = document.getElementById('div1')
+            // 获取元素内容
+            console.log(div1.innerHTML)
+            console.log(div1.innerText)
+            // 修改元素内容
+            // 语法：元素.innerHTML = 内容（同时可以识别html标签）
+            div1.innerHTML = '<h1>嗨</h1>' // 显示内容
+            // 语法：元素.innerText = 内容（只识别文本）
+            div1.innerText = '嗨'
+        }
+    </script>
+
+    <style>
+        #in1 {
+            color: red;
+            /* border-radius: 5px; */
+        }
+    </style>
+</head>
+
+<body>
+    <input id="in1" type="text" value="hello"><br>
+    <div id="div1">
+        hello
+    </div>
+    <hr>
+
+    <button onclick="changeAttribute()">操作属性</button>
+    <button onclick="changeStyle()">操作样式</button>
+    <button onclick="changeText()">操作文本</button>
+</body>
+
+</html>
