@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS中使用正则表达式处理字符串</title>
+
+    <script>
+        /* 验证 */
+        // 自定义一个字符串
+        let str = 'hello world'
+        // 定义一个正则表达式
+        let reg = /o/
+        // 校验字符串是否符合正则的规则，此处规则为是否包含o
+        console.log(reg.test(str))
+
+        /* 匹配 */
+        reg = /o/
+        let result = str.match(reg) // 默认匹配成功第一个就结束
+        console.log(result)
+        reg = /o/g // 全局匹配
+        console.log(str.match(reg))
+
+        /* 替换 */
+        reg = /o/
+        let newStr = str.replace(reg, '@') // 替换第一个匹配到的o
+        console.log(newStr)
+        reg = /o/g
+        console.log(str.replace(reg, '@')) // 替换所有匹配到的o
+        reg = /o/gi
+        console.log('hello wOrld'.replace(reg, '@')) // 全局匹配，大小写不敏感
+
+        // 前缀匹配和后缀匹配
+        let str1 = 'java love me'
+        let str2 = 'I love java'
+        reg = /^java/ // 匹配以java开头
+        console.log(reg.test(str1)) // true
+        console.log(reg.test(str2)) // false
+        reg = /java$/ // 匹配以java结尾
+        console.log(reg.test(str1)) // false
+        console.log(reg.test(str2)) // true
+        reg = /^java$/ // 匹配以java开头，以java结尾
+        console.log(reg.test(str1)) // false
+        console.log(reg.test(str2)) // false
+        let str3 = 'java java java'
+        console.log(reg.test(str3)) // false
+        console.log(reg.test('java')) // true
+
+        // 校验用户名是否合法
+        /* 
+            规则：
+            1.必须是字母开头
+            2.长度必须是6-10位
+            3.后面其他字符可以是大写字母，数字，下划线
+         */
+        let username = 'abc123'
+        reg = /^[a-zA-Z][a-zA-Z0-9_]{5,9}$/
+        // 简化写法
+        reg = /^[a-zA-Z]\w{5,9}$/
+        console.log(reg.test(username)) // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
