@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM编程API-获取元素</title>
+
+    <script>
+        // 1.获得document对象
+        // 2.从document中获取要操作的元素
+        // 直接获取：对应fun1、fun2、fun3、fun4
+        // 间接获取：对应fun5、fun6、fun7
+
+        function fun1() {
+            // 根据元素的id值获取页面上唯一的一个元素
+            let el1 = document.getElementById('username')
+            console.log(el1)
+        }
+
+        function fun2() {
+            // 根据元素的标签名获取多个同名元素
+            let inputs = document.getElementsByTagName('input')
+            // console.log(inputs)
+            for (let i = 0; i < inputs.length; i++) {
+                console.log(inputs[i])
+            }
+        }
+
+        function fun3() {
+            // 根据元素的name属性值获得多个元素
+            let els = document.getElementsByName('aaa')
+            // console.log(els)
+            for (let i = 0; i < els.length; i++) {
+                console.log(els[i])
+            }
+        }
+
+        function fun4() {
+            // 根据元素的class属性值获得多个元素
+            let els = document.getElementsByClassName('a')
+            for (let i = 0; i < els.length; i++) {
+                console.log(els[i])
+            }
+        }
+
+        function fun5() {
+            // 先获取父元素
+            let div1 = document.getElementById('div1')
+            // 获取所有子元素
+            let children = div1.children // 通过父元素获取全部子元素
+            for (let i = 0; i < children.length; i++) {
+                console.log(children[i])
+            }
+
+            console.log(div1.firstElementChild) // 通过父元素获取第一个子元素
+            console.log(div1.lastElementChild) // 通过父元素获取最后一个子元素
+        }
+
+        function fun6() {
+            // 获取子元素
+            let child = document.getElementById('password')
+            // 通过子元素获取父元素
+            console.log(child.parentElement)
+        }
+
+        function fun7() {
+            // 获取子元素
+            let child = document.getElementById('password')
+            // 获取前面的第一个元素
+            console.log(child.previousElementSibling)
+            // 获取后面的第一个元素
+            console.log(child.nextElementSibling)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <input type="text" class="a" id="username" name="aaa" /><br>
+        <input type="text" class="b" id="password" name="aaa" /><br>
+        <input type="text" class="a" id="email" /><br>
+        <input type="text" class="b" id="address" /><br>
+    </div>
+    <br>
+
+    <input type="text" class="a" />
+    <hr>
+
+    <input type="button" value="根据id获取指定元素" onclick="fun1()" id="btn1" /><br>
+    <input type="button" value="根据标签名获取多个元素" onclick="fun2()" id="btn2" /><br>
+    <input type="button" value="根据name属性值获取多个元素" onclick="fun3()" id="btn3" /><br>
+    <input type="button" value="根据class属性值获得多个元素" onclick="fun4()" id="btn4" /><br>
+    <hr>
+
+    <input type="button" value="通过父元素获取子元素" onclick="fun5()" id="btn5" /><br>
+    <input type="button" value="通过子元素获取父元素" onclick="fun6()" id="btn6" /><br>
+    <input type="button" value="通过当前元素获取兄弟元素" onclick="fun7()" id="btn7" />
+</body>
+
+</html>
