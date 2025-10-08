@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM编程API-增删元素</title>
+
+    <script>
+        function addHangzhou() {
+            // 创建一个新的元素
+            let li = document.createElement('li')
+            // 设置元素的内容和属性
+            li.id = 'hangzhou'
+            li.innerText = '杭州'
+            // 添加到指定元素后面（将子元素添加到父元素中）
+            let city = document.getElementById('city')
+            city.appendChild(li) // 在父元素中追加子元素
+        }
+
+        function addSuzhouBeforeShenzhen() {
+            // 创建一个新的元素
+            let li = document.createElement('li')
+            // 添加内容
+            li.id = 'suzhou'
+            li.innerText = '苏州'
+            // 添加到指定元素前面
+            let city = document.getElementById('city')
+            city.insertBefore(li, city.children[3]) // 在父元素中插入子元素
+        }
+
+        function replaceShenzhenToChengdu() {
+            // 创建一个新的元素
+            let li = document.createElement('li')
+            // 添加内容
+            li.id = 'chengdu'
+            li.innerText = '成都'
+            // 获取指定元素
+            let city = document.getElementById('city')
+            // 获取指定元素
+            let shenzhen = document.getElementById('shenzhen')
+            // 替换元素
+            city.replaceChild(li, shenzhen)
+        }
+
+        function removeShanghai() {
+            // 获取指定元素
+            let city = document.getElementById('city')
+            // 获取指定元素
+            let shanghai = document.getElementById('shanghai')
+            // 删除元素
+            city.removeChild(shanghai)
+
+            // 方式二
+            // 哪个元素调用了remove()方法，该元素就会从dom树中删除
+            document.getElementById('shanghai').remove()
+        }
+
+        function clearCityList() {
+            // 获取指定元素
+            let city = document.getElementById('city')
+            // 方式一：循环删除所有子元素
+            while (city.firstChild) {
+                city.removeChild(city.firstChild)
+            }
+            // 方式二：删除所有子元素
+            city.innerHTML = ''
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="city">
+        <li id="beijing">北京</li>
+        <li id="shanghai">上海</li>
+        <li id="guangzhou">广州</li>
+        <li id="shenzhen">深圳</li>
+    </ul>
+    <hr>
+
+    <!-- 目标1：在城市列表的最后添加一个城市 -->
+    <button onclick="addHangzhou()">在末尾增加杭州</button><br>
+
+    <!-- 目标2：在城市列表中深圳前添加一个城市 -->
+    <button onclick="addSuzhouBeforeShenzhen()">在深圳前增加苏州</button><br>
+
+    <!-- 目标3：将城市列表中的深圳替换为成都 -->
+    <button onclick="replaceShenzhenToChengdu()">将深圳替换为成都</button><br>
+
+    <!-- 目标4：删除城市列表中的上海 -->
+    <button onclick="removeShanghai()">删除上海</button><br>
+
+    <!-- 目标5：清空城市列表 -->
+    <button onclick="clearCityList()">清空城市列表</button>
+</body>
+
+</html>
